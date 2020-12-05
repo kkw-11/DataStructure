@@ -36,5 +36,8 @@
     <ClCompile Include="list.cpp">
       <Filter>Source Files2</Filter>
     </ClCompile>
+    <ClCompile Include="ex12.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

@@ -10,7 +10,7 @@ void FreeMalloc(Node* head) {
 		Node* np = p->link;
 		free(p);
 		p = np;
-	}
+   	}	
 }
 
 int main() {

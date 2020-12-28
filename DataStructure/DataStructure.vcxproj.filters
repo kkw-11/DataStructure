@@ -39,5 +39,14 @@
     <ClCompile Include="ex12.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ex13.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ex04.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

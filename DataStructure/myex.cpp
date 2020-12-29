@@ -5,24 +5,23 @@ int top;
 int stack[MAX_N];
 
 void stackInit() {
+
 	top = 0;
 }
-
-int stackIsEmpty() {
-	
-	return (top == 0);
-}
-
 int stackIsFull() {
 
 	return (top == MAX_N);
 }
 
+int stackIsEmpty() {
+
+	return (top == 0);
+}
+
 int stackPush(int value) {
 
-	if (stackIsFull())
-	{
-		printf("stack is overflow!\n");
+	if (stackIsFull()) {
+		printf("stack is overflow\n");
 		return 0;
 	}
 
@@ -30,9 +29,11 @@ int stackPush(int value) {
 	++top;
 	return 1;
 }
+
 int stackPop(int* value) {
-	if (!stackIsEmpty()) {
-		printf("stack is empty!\n");
+
+	if (stackIsEmpty()) {
+		printf("stack is empty\n");
 		return 0;
 	}
 	--top;
@@ -43,29 +44,92 @@ int stackPop(int* value) {
 
 int main() {
 
+	int value;
+	stackPop(&value);
 
-	int N;
-	printf("Input stack size: ");
-	scanf("%d", &N);
-	stackInit();
+	stackPush(3);
+	stackPush(4);
+	stackPush(5);
 
-	for (int i = 0; i < N; ++i) {
-		int value;
-		scanf("%d",&value);
-		stackPush(value);
-
-	}
-	
 	while (!stackIsEmpty()) {
 		int value;
 		if (stackPop(&value) == 1) {
 			printf("%d ", value);
+
 		}
 	}
-	
 
-
+	return 0;
 }
+
+//#include <stdio.h>
+//#define MAX_N 100
+//
+//int top;
+//int stack[MAX_N];
+//
+//void stackInit() {
+//	top = 0;
+//}
+//
+//int stackIsEmpty() {
+//	
+//	return (top == 0);
+//}
+//
+//int stackIsFull() {
+//
+//	return (top == MAX_N);
+//}
+//
+//int stackPush(int value) {
+//
+//	if (stackIsFull())
+//	{
+//		printf("stack is overflow!\n");
+//		return 0;
+//	}
+//
+//	stack[top] = value;
+//	++top;
+//	return 1;
+//}
+//int stackPop(int* value) {
+//	if (!stackIsEmpty()) {
+//		printf("stack is empty!\n");
+//		return 0;
+//	}
+//	--top;
+//	*value = stack[top];
+//	return 1;
+//}
+//
+//
+//int main() {
+//
+//
+//	int N;
+//	printf("Input stack size: ");
+//	scanf("%d", &N);
+//	stackInit();
+//
+//	for (int i = 0; i < N; ++i) {
+//		int value;
+//		scanf("%d",&value);
+//		stackPush(value);
+//
+//	}
+//	
+//	while (!stackIsEmpty()) {
+//		int value;
+//		if (stackPop(&value) == 1) {
+//			printf("%d ", value);
+//		}
+//	}
+//	
+//
+//
+//}
 
 //#include <stdio.h>
 //

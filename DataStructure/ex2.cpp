@@ -4,6 +4,7 @@ struct Point {
 	int x;
 	int y;
 };
+
 int main() {
 
 	Point pt = { 1,2 };
@@ -16,7 +17,6 @@ int main() {
 
 	return 0;
 }
-
 
 //#include <stdio.h>
 //typedef struct _Point_tag {
@@ -116,7 +116,6 @@ int main() {
 //	return 0;
 //}
 
-
 //#include <stdio.h>
 //int main() {
 //
@@ -128,7 +127,6 @@ int main() {
 //
 //	return 0;
 //}
-
 
 //#include <stdio.h>
 //#include <stdlib.h>
@@ -200,10 +198,8 @@ int main() {
 //	arr[9] = 100;
 //
 //	for (int i = 0; i < 10; ++i) {
-//
 //		printf("%d\n", arr[i]);
 //	}
-//
 //
 //	int* p;
 //
@@ -219,7 +215,6 @@ int main() {
 //	p[8] = 90;
 //	p[9] = 100;
 //	for (int i = 0; i < 10; ++i) {
-//
 //		printf("%d\n", p[i]);
 //	}
 //
@@ -265,7 +260,6 @@ int main() {
 //		printf("%d\n", arr[i]);
 //	}
 //
-//
 //	int* p;
 //
 //	p = (int*)malloc(4*10);
@@ -280,14 +274,12 @@ int main() {
 //	p[8] = 90;
 //	p[9] = 100;
 //	for (int i = 0; i < 10; ++i) {
-//
 //		printf("%d\n", p[i]);
 //	}
 //
 //	free(p);
 //	return 0;
 //}
-
 
 //#include <stdio.h>
 //#include <stdlib.h>
@@ -331,10 +323,8 @@ int main() {
 //	free(p);
 //	printf("end main\n");
 //
-//
 //	return 0;
 //}
-
 
 //#include <stdio.h>
 //int garr[10];//GlobalData ¿µ¿ª

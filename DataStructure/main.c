@@ -52,16 +52,16 @@ int main(int argc, char* argv[])
 {
     int T, N;
 
-    scanf("%d", &T);
+    scanf_s("%d", &T);
 
     for (int test_case = 1; test_case <= T; test_case++)
     {
-        scanf("%d", &N);
+        scanf_s("%d", &N);
         stackInit();
         for (int i = 0; i < N; i++)
         {
             int value;
-            scanf("%d", &value);
+            scanf_s("%d", &value);
             stackPush(value);
         }
 

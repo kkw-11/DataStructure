@@ -21,7 +21,7 @@ int stackIsEmpty() {
 int stackPush(int value) {
 
 	if (stackIsFull()) {
-		printf("stack is overflow\n");
+		printf("Stack is overflow\n");
 		return 0;
 	}
 
@@ -33,7 +33,7 @@ int stackPush(int value) {
 int stackPop(int* value) {
 
 	if (stackIsEmpty()) {
-		printf("stack is empty\n");
+		printf("Stack is empty\n");
 		return 0;
 	}
 	--top;

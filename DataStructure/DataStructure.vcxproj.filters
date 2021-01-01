@@ -24,9 +24,6 @@
     <ClCompile Include="ex2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ex09.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="ex10.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -45,10 +42,13 @@
     <ClCompile Include="main.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ex04.cpp">
+    <ClCompile Include="ex3.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ex3.cpp">
+    <ClCompile Include="ex4.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ex9.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

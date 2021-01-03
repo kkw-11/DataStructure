@@ -8,20 +8,26 @@ void PrintList(int list[], int size) {
 
 	printf("\n");
 }
-int Search(int list[], int size, int data) {
+int Search(int list[], int size, int (*pcmp)(int)) {
 
 	for (int i = 0; i < size; ++i)
-		if (list[i] == data)
+		if (pcmp(list[i]))//콜백
 			return i;
 
 	return -1;
 }
 /////////클라이언트
+
+int cmp(int data) { //콜백함수
+
+
+	return (data > 50 && data % 2 == 0);
+}
 int main() {
 
 	int list[10] = { 20,23,56,70,35,42,65,51,89,25 };
 	PrintList(list, 10);
-	int idx = Search(list, 10, 48);
+	int idx = Search(list, 10, cmp);
 
 	if (idx != -1)
 		printf("list[%d]:%d", idx, list[idx]);
@@ -29,8 +35,162 @@ int main() {
 		printf("cannot data\n");
 
 	return 0;
-
 }
+
+//#include <stdio.h>
+//#include <stdlib.h>
+//
+//int Add(int a, int b) {
+//
+//	return a + b;
+//}
+//void Print(int n) {
+//
+//}
+//int main() {
+//	int (*pf)(int , int );
+//	void (*pf2)(int);
+//	pf = Add;
+//	pf2 = Print;
+//	int result = pf(10, 20);
+//
+//	printf("result: %d\n", result);
+//	printf("result: %d\n", Add(30,40));
+//	printf("result: %d\n", pf(50,60));
+//
+//	return 0;
+//}
+
+
+//#include <stdio.h>
+//#include <stdlib.h>
+//
+//int Add(int a, int b) {
+//
+//	return a + b;
+//}
+//
+//int main() {
+//
+//	int result = Add(10, 20);
+//
+//	printf("result: %d\n", result);
+//	printf("%p\n", Add);
+//	printf("%p\n", main);
+//	return 0;
+//}
+
+//#include <stdio.h>
+//#include <stdlib.h>
+////////////서버
+//void PrintList(int list[], int size) {
+//
+//	for (int i = 0; i < size; ++i)
+//		printf("%5d", list[i]);
+//
+//	printf("\n");
+//}
+//int Search(int list[], int size, int (*cmp)(int)) {
+//
+//	for (int i = 0; i < size; ++i)
+//		if (cmp(list[i]))//콜백
+//			return i;
+//
+//	return -1;
+//}
+///////////클라이언트
+//
+//int cmp(int data) { //콜백함수
+//
+//
+//	return data >50 && data%2==0;
+//}
+//int main() {
+//
+//	int list[10] = { 20,23,56,70,35,42,65,51,89,25 };
+//	PrintList(list, 10);
+//	int idx = Search(list, 10, cmp);
+//
+//	if (idx != -1)
+//		printf("list[%d]:%d", idx, list[idx]);
+//	else
+//		printf("cannot data\n");
+//
+//	return 0;
+//}
+
+//
+//#include <stdio.h>
+//#include <stdlib.h>
+////////////서버
+//void PrintList(int list[], int size) {
+//
+//	for (int i = 0; i < size; ++i)
+//		printf("%5d", list[i]);
+//
+//	printf("\n");
+//}
+//int Search(int list[], int size, int (*cmp)(int)) {
+//
+//	for (int i = 0; i < size; ++i)
+//		if (cmp(list[i]))
+//			return i;
+//
+//	return -1;
+//}
+///////////클라이언트
+//int cmp(int data) {
+//
+//
+//	return data == 42;
+//}
+//int main() {
+//
+//	int list[10] = { 20,23,56,70,35,42,65,51,89,25 };
+//	PrintList(list, 10);
+//	int idx = Search(list, 10, cmp);
+//
+//	if (idx != -1)
+//		printf("list[%d]:%d", idx, list[idx]);
+//	else
+//		printf("cannot data\n");
+//
+//	return 0;
+//}
+
+//#include <stdio.h>
+//#include <stdlib.h>
+////////////서버
+//void PrintList(int list[], int size) {
+//
+//	for (int i = 0; i < size; ++i)
+//		printf("%5d", list[i]);
+//
+//	printf("\n");
+//}
+//int Search(int list[], int size, int data) {
+//
+//	for (int i = 0; i < size; ++i)
+//		if (list[i] == data)
+//			return i;
+//
+//	return -1;
+//}
+///////////클라이언트
+//
+//int main() {
+//
+//	int list[10] = { 20,23,56,70,35,42,65,51,89,25 };
+//	PrintList(list, 10);
+//	int idx = Search(list, 10, 48);
+//
+//	if (idx != -1)
+//		printf("list[%d]:%d", idx, list[idx]);
+//	else
+//		printf("cannot data\n");
+//
+//	return 0;
+//}
 
 //#include <stdio.h>
 //#include <stdlib.h>

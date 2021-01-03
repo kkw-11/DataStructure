@@ -2,17 +2,18 @@
 #include <stdlib.h>
 int BSearch(int list[], int size, int data) {
 	int left = 0, right = size - 1;
-	int middle = (left + right) / 2;
-	if (data < list[middle]) {
-		return -1;
+	while (left <= right) {
+		int middle = (left + right) / 2;
+		if (data < list[middle]) {
+			right = middle - 1;
+		}
+		else if (data > list[middle]) {
+			left = middle + 1;
+		}
+		else {
+			return middle;
+		}
 	}
-	else if (data > list[middle]) {
-		return -1;
-	}
-	else {
-		return middle;
-	}
-
 	return -1;
 }
 
@@ -41,6 +42,46 @@ int main() {
 //#include <stdlib.h>
 //int BSearch(int list[], int size, int data) {
 //	int left = 0, right = size - 1;
+//	while (1) {
+//		int middle = (left + right) / 2;
+//		if (data < list[middle]) {
+//			right = middle - 1;
+//		}
+//		else if (data > list[middle]) {
+//			left = middle + 1;
+//		}
+//		else {
+//			return middle;
+//		}
+//	}
+//	return 2;
+//}
+//
+//void PrintList(int list[], int size) {
+//
+//	for (int i = 0; i < size; ++i)
+//		printf("%5d", list[i]);
+//
+//	printf("\n");
+//}
+//
+//int main() {
+//
+//	int list[10] = { 20, 23, 25, 35, 42, 51, 56, 65, 70, 89 };
+//
+//
+//	PrintList(list, 10);
+//	int idx = BSearch(list, 10, 42);
+//	if (idx != -1)
+//		printf("list[%d]:%d\n", idx, list[idx]);
+//
+//}
+
+
+//#include <stdio.h>
+//#include <stdlib.h>
+//int BSearch(int list[], int size, int data) {
+//	int left = 0, right = size - 1;
 //	int middle = (left + right) / 2;
 //	if (data < list[middle]) {
 //		return -1;
@@ -52,7 +93,7 @@ int main() {
 //		return middle;
 //	}
 //
-//	return -1;
+//	return 2;
 //}
 //
 //void PrintList(int list[], int size) {

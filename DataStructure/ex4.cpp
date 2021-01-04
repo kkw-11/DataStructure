@@ -2,8 +2,8 @@
 #include <stdlib.h>
 //¼­¹ö
 struct Stack {
-	int* stack; 
-	int top; 
+	int* stack;
+	int top;
 };
 void Push(Stack* st, int data) {
 
@@ -11,7 +11,7 @@ void Push(Stack* st, int data) {
 	++st->top;
 }
 int Pop(Stack* st) {
-	--st->top; //*top = *top 0-1;
+	--st->top; //*top = *top-1;
 	return st->stack[st->top];
 }
 void InitStack(Stack* st, int cap) {
@@ -29,7 +29,7 @@ int main() {
 	Stack st;
 	Stack st2;
 
-	InitStack(&st,500);
+	InitStack(&st, 500);
 	Push(&st, 10);
 	Push(&st, 20);
 	Push(&st, 30);
@@ -38,7 +38,7 @@ int main() {
 	printf("%d\n", Pop(&st));
 	UninitStack(&st);
 
-	InitStack(&st2,10);
+	InitStack(&st2, 10);
 	Push(&st2, 100);
 	Push(&st2, 200);
 	printf("%d\n", Pop(&st2));
@@ -60,7 +60,7 @@ int main() {
 //	++st->top;
 //}
 //int Pop(Stack* st) {
-//	--st->top; //*top = *top 0-1;
+//	--st->top; //*top = *top-1;
 //	return st->stack[st->top];
 //}
 //void InitStack(Stack* st) {
@@ -109,7 +109,7 @@ int main() {
 //	++st->top;
 //}
 //int Pop(Stack* st) {
-//	--st->top; //*top = *top 0-1;
+//	--st->top; //*top = *top-1;
 //	return st->stack[st->top];
 //}
 //
@@ -150,7 +150,7 @@ int main() {
 //	++st->top;
 //}
 //int Pop(Stack* st) {
-//	--st->top; //*top = *top 0-1;
+//	--st->top; //*top = *top-1;
 //	return st->stack[st->top];
 //}
 //
@@ -191,7 +191,7 @@ int main() {
 //	++st->top;
 //}
 //int Pop(Stack* st) {
-//	-- st->top; //*top = *top 0-1;
+//	-- st->top; //*top = *top-1;
 //	return st->stack[st->top];
 //}
 //
@@ -221,7 +221,7 @@ int main() {
 //	++* top;
 //}
 //int Pop(int stack[], int* top) {
-//	--* top; //*top = *top 0-1;
+//	--* top; //*top = *top-1;
 //	return stack[*top];
 //}
 ///////////////////////////////////
@@ -260,7 +260,7 @@ int main() {
 //	++*top;
 //}
 //int Pop(int stack[], int* top) {
-//	--*top; //*top = *top 0-1;
+//	--*top; //*top = *top-1;
 //	return stack[*top];
 //}
 ///////////////////////////////////

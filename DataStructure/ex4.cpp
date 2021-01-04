@@ -1,24 +1,15 @@
 #include <stdio.h>
+int main() {
 
-void push(int* arr, int n, int i)
-{
-	int a = n;
-	arr[0] = a;
-	arr[2] = ++a;
-	arr[i] = a;
-}
-
-int main()
-{
-
-	int arr[5];
-
-	push(arr, 10, 3);
-
-	printf("%d\n", arr[0]);
-	printf("%d\n", arr[2]);
-	printf("%d\n", arr[3]);
-
+	printf("Hello!\n");
 
 	return 0;
 }
+
+//#include <stdio.h>
+//int main() {
+//
+//	printf("Hello!\n");
+//
+//	return 0;
+//}

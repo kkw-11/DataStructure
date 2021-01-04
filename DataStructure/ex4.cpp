@@ -11,7 +11,7 @@ void Push(Stack* st, int data) {
 	++st->top;
 }
 int Pop(Stack* st) {
-	--st->top; //*top = *top 0-1;
+	--st->top; //*top = *top-1;
 	return st->stack[st->top];
 }
 void InitStack(Stack* st, int cap) {
@@ -60,7 +60,7 @@ int main() {
 //	++st->top;
 //}
 //int Pop(Stack* st) {
-//	--st->top; //*top = *top 0-1;
+//	--st->top; //*top = *top-1;
 //	return st->stack[st->top];
 //}
 //void InitStack(Stack* st) {
@@ -109,7 +109,7 @@ int main() {
 //	++st->top;
 //}
 //int Pop(Stack* st) {
-//	--st->top; //*top = *top 0-1;
+//	--st->top; //*top = *top-1;
 //	return st->stack[st->top];
 //}
 //
@@ -150,7 +150,7 @@ int main() {
 //	++st->top;
 //}
 //int Pop(Stack* st) {
-//	--st->top; //*top = *top 0-1;
+//	--st->top; //*top = *top-1;
 //	return st->stack[st->top];
 //}
 //
@@ -191,7 +191,7 @@ int main() {
 //	++st->top;
 //}
 //int Pop(Stack* st) {
-//	-- st->top; //*top = *top 0-1;
+//	-- st->top; //*top = *top-1;
 //	return st->stack[st->top];
 //}
 //
@@ -221,7 +221,7 @@ int main() {
 //	++* top;
 //}
 //int Pop(int stack[], int* top) {
-//	--* top; //*top = *top 0-1;
+//	--* top; //*top = *top-1;
 //	return stack[*top];
 //}
 ///////////////////////////////////
@@ -260,7 +260,7 @@ int main() {
 //	++*top;
 //}
 //int Pop(int stack[], int* top) {
-//	--*top; //*top = *top 0-1;
+//	--*top; //*top = *top-1;
 //	return stack[*top];
 //}
 ///////////////////////////////////

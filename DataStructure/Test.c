@@ -1,8 +1,15 @@
 #include<stdio.h>
+typedef struct _q {
 
-void Push(int queue[], int* pfront, int* prear, int data) {
-	if ((*prear + 1) % 5 == *pfront)
-		return 0xfffffff;
+	int* queue;
+	int front, rear;
+	int capacity;
+} Queue;
+
+
+void Push(Queue* q, int data) {
+	if ((q->rear + 1) % q->capacity == q->front)
+		return;
 	/*
 		++rear;
 		if(rear == 5)
@@ -10,48 +17,194 @@ void Push(int queue[], int* pfront, int* prear, int data) {
 
 	*/
 
-	*prear = (*prear + 1) % 5;
-
-	queue[*prear] = data;
+	q->rear = (q->rear + 1) % q->capacity;
+	q->queue[q->rear] = data;
 
 }
 
-int Pop(int queue[],int* pfront, int* prear) {
-	if (*pfront == *prear)
+int Pop(Queue* q) {
+	if (q->front == q->rear)
 		return 0xfffffff;
 
-	*pfront = (*pfront + 1) % 5;
+	q->front = (q->front + 1) % q->capacity;
 
-	return queue[*pfront];
+	return q->queue[q->front];
 }
+
+void InitQueue(Queue* q, int cap) {
+	q->queue = (int*)malloc(sizeof(int) * cap);
+	q->capacity = cap;
+	q->front = q->rear = 0;
+
+}
+void UninitQueue(Queue* q) {
+	free(q->queue);
+	q->front = q->rear = 0;
+
+}
+
+
+
 int main() {
 
-	int queue1[5];
-	int front1 = 0, rear1 = 0;
+	Queue q1;
+	Queue q2;
 
-	int queue2[5];
-	int front2 = 0, rear2 = 0;
-
-
-
-	Push(queue1, &front1, &rear1, 10);
-	Push(queue1, &front1, &rear1, 20);
-	Push(queue1,&front1, &rear1, 30);
+	InitQueue(&q1, 10);
+	Push(&q1, 10);
+	Push(&q1, 20);
+	Push(&q1, 30);
 
 
-	printf("%d\n", Pop(queue1, &front1, &rear1));
-	printf("%d\n", Pop(queue1, &front1, &rear1));
-	printf("%d\n", Pop(queue1, &front1, &rear1));
+	printf("%d\n", Pop(&q1));
+	printf("%d\n", Pop(&q1));
+	printf("%d\n", Pop(&q1));
+	UninitQueue(&q1);
 
-	Push(queue2, &front2, &rear2, 100);
-	Push(queue2, &front2, &rear2,200);
+	InitQueue(&q2, 10);
+	Push(&q2, 100);
+	Push(&q2, 200);
 
-	printf("%d\n", Pop(queue2, &front2, &rear2));
-	printf("%d\n", Pop(queue2,&front2,&rear2));
+	printf("%d\n", Pop(&q2));
+	printf("%d\n", Pop(&q2));
+	UninitQueue(&q2);
 
 
 	return 0;
 }
+
+
+//#include<stdio.h>
+//typedef struct _q {
+//
+//	int* queue;
+//	int front, rear;
+//	int capacity;
+//} Queue;
+//
+//
+//void Push(Queue* q, int data) {
+//	if ((q->rear + 1) % q->capacity == q->front)
+//		return;
+//	/*
+//		++rear;
+//		if(rear == 5)
+//			rear = 0;
+//
+//	*/
+//
+//	q->rear = (q->rear + 1) % q->capacity;
+//	q->queue[q->rear] = data;
+//
+//}
+//
+//int Pop(Queue* q) {
+//	if (q->front == q->rear)
+//		return 0xfffffff;
+//
+//	q->front = (q->front + 1) % q->capacity;
+//
+//	return q->queue[q->front];
+//}
+//
+//void InitQueue(Queue* q, int cap) {
+//	q->queue = (int*)malloc(sizeof(int) * cap);
+//	q->capacity = cap;
+//	q->front = q->rear = 0;
+//
+//}
+//void UninitQueue(Queue* q) {
+//	free(q->queue);
+//	q->front = q->rear = 0;
+//
+//}
+//
+//
+//
+//int main() {
+//
+//	Queue q1;
+//	Queue q2;
+//
+//	InitQueue(&q1, 10);
+//	Push(&q1, 10);
+//	Push(&q1, 20);
+//	Push(&q1, 30);
+//
+//
+//	printf("%d\n", Pop(&q1));
+//	printf("%d\n", Pop(&q1));
+//	printf("%d\n", Pop(&q1));
+//	UninitQueue(&q1);
+//
+//	InitQueue(&q2, 10);
+//
+//	Push(&q2, 100);
+//	Push(&q2, 200);
+//
+//	printf("%d\n", Pop(&q2));
+//	printf("%d\n", Pop(&q2));
+//	UninitQueue(&q2);
+//
+//
+//	return 0;
+//}
+
+//#include<stdio.h>
+//typedef struct _q {
+//
+//	int queue[5];
+//	int front, rear;
+//
+//} Queue;
+//
+//
+//void Push(Queue* q, int data) {
+//	if ((q->rear + 1) % 5 == q->front)
+//		return 0xfffffff;
+//	/*
+//		++rear;
+//		if(rear == 5)
+//			rear = 0;
+//
+//	*/
+//
+//	q->rear = (q->rear + 1) % 5;
+//	q->queue[q->rear] = data;
+//
+//}
+//
+//int Pop(Queue* q) {
+//	if (q->front == q->rear)
+//		return 0xfffffff;
+//
+//	q->front = (q->front + 1) % 5;
+//
+//	return q->queue[q->front];
+//}
+//int main() {
+//
+//	Queue q1 = {0};
+//	Queue q2 = {0};
+//
+//	Push(&q1, 10);
+//	Push(&q1, 20);
+//	Push(&q1, 30);
+//
+//
+//	printf("%d\n", Pop(&q1));
+//	printf("%d\n", Pop(&q1));
+//	printf("%d\n", Pop(&q1));
+//
+//	Push(&q2, 100);
+//	Push(&q2, 200);
+//
+//	printf("%d\n", Pop(&q2));
+//	printf("%d\n", Pop(&q2));
+//
+//
+//	return 0;
+//}
 
 //#include<stdio.h>
 //int queue[5];

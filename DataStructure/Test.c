@@ -14,10 +14,9 @@ void Swap(int* pa, int* pb) {
 }
 void SelectionSort(int list[], int size) {
 	{
-		int value;
+		int value, j;
 		for (int i = 1; i < size; ++i) {
 			value = list[i];
-			int j;
 			for (j = i - 1; j >= 0; --j) {
 				if (list[j] > value)
 					list[j + 1] = list[j];

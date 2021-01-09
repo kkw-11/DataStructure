@@ -210,75 +210,75 @@ int main() {
 //}
 
 
-#include <stdio.h>
-
-void PrintList(int list[], int size) {
-	for (int i = 0; i < size; ++i) {
-		printf("%5d", list[i]);
-	}
-	printf("\n");
-
-}
-void Swap(int* pa, int* pb) {
-	int temp = *pa;
-	*pa = *pb;
-	*pb = temp;
-}
-//전체 구간에서 최소값구하기
-
-int Min(int list[], int size) {
-	int min = 0;
-
-	for (int i = 1; i < size; ++i) {
-		if (list[i] < list[min])
-			min = i;
-	}
-
-	return min;
-}
-
-int Min(int list[], int sIndex, int eIndex) {
-	int min = sIndex;
-
-	for (int i = sIndex + 1; i <= eIndex; ++i) {
-		if (list[i] < list[min])
-			min = i;
-	}
-
-	return min;
-}
-
-void InsertionSort(int list[], int size) {
-
-	int value, j;
-	for (int i = 1; i < size; ++i) {
-		value = list[i];
-
-		for (j = i - 1; j >= 0; --j) {
-			if (list[j] > value)
-				list[j + 1] = list[j];
-			else
-				break;
-		}
-
-		list[j + 1] = value;
-	}
-}
-
-int main() {
-
-	//int list[10] = { 80,20,70,50,60,90,40,30 };
-	int list[10] = { 20,50,70, 80,10,90,40,30 };
-
-	int size = 8;
-	PrintList(list, size);
-
-	InsertionSort(list, size);
-
-	PrintList(list, size);
-
-	return 0;
-}
+//#include <stdio.h>
+//
+//void PrintList(int list[], int size) {
+//	for (int i = 0; i < size; ++i) {
+//		printf("%5d", list[i]);
+//	}
+//	printf("\n");
+//
+//}
+//void Swap(int* pa, int* pb) {
+//	int temp = *pa;
+//	*pa = *pb;
+//	*pb = temp;
+//}
+////전체 구간에서 최소값구하기
+//
+//int Min(int list[], int size) {
+//	int min = 0;
+//
+//	for (int i = 1; i < size; ++i) {
+//		if (list[i] < list[min])
+//			min = i;
+//	}
+//
+//	return min;
+//}
+//
+//int Min(int list[], int sIndex, int eIndex) {
+//	int min = sIndex;
+//
+//	for (int i = sIndex + 1; i <= eIndex; ++i) {
+//		if (list[i] < list[min])
+//			min = i;
+//	}
+//
+//	return min;
+//}
+//
+//void InsertionSort(int list[], int size) {
+//
+//	int value, j;
+//	for (int i = 1; i < size; ++i) {
+//		value = list[i];
+//
+//		for (j = i - 1; j >= 0; --j) {
+//			if (list[j] > value)
+//				list[j + 1] = list[j];
+//			else
+//				break;
+//		}
+//
+//		list[j + 1] = value;
+//	}
+//}
+//
+//int main() {
+//
+//	//int list[10] = { 80,20,70,50,60,90,40,30 };
+//	int list[10] = { 20,50,70, 80,10,90,40,30 };
+//
+//	int size = 8;
+//	PrintList(list, size);
+//
+//	InsertionSort(list, size);
+//
+//	PrintList(list, size);
+//
+//	return 0;
+//}
 
 //#include <stdio.h>
 //
@@ -807,8 +807,6 @@ int main() {
 //	*pa = *pb;
 //	*pb = temp;
 //}
-//
-//
 //
 //int main() {
 //

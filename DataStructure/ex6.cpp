@@ -41,7 +41,7 @@ int main() {
 //		if (data < arr[middle]) {
 //			int idx = _BinarySearch(arr, left, middle - 1, data);
 //			return idx;
-//
+// 
 //		}
 //		else if (data > arr[middle]) {
 //			int idx = _BinarySearch(arr, middle + 1, right, data);

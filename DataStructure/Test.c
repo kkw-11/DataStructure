@@ -1,77 +1,174 @@
-#include<stdio.h>
-typedef struct _q {
-
-	int* queue;
-	int front, rear;
-	int capacity;
-} Queue;
-
-
-void Push(Queue* q, int data) {
-	if ((q->rear + 1) % q->capacity == q->front)
-		return;
-	/*
-		++rear;
-		if(rear == 5)
-			rear = 0;
-
-	*/
-
-	q->rear = (q->rear + 1) % q->capacity;
-	q->queue[q->rear] = data;
+#include <stdio.h>
+void PrintList(int list[], int size) {
+	for (int i = 0; i < size; ++i) {
+		printf("%5d", list[i]);
+	}
+	printf("\n");
 
 }
-
-int Pop(Queue* q) {
-	if (q->front == q->rear)
-		return 0xfffffff;
-
-	q->front = (q->front + 1) % q->capacity;
-
-	return q->queue[q->front];
-}
-
-void InitQueue(Queue* q, int cap) {
-	q->queue = (int*)malloc(sizeof(int) * cap);
-	q->capacity = cap;
-	q->front = q->rear = 0;
+void Swap(int* pa, int* pb) {
+	int temp = *pa;
+	*pa = *pb;
+	*pb = temp;
 
 }
-void UninitQueue(Queue* q) {
-	free(q->queue);
-	q->front = q->rear = 0;
+void SelectionSort(int list[], int size) {
+	{
+		int value;
+		for (int i = 1; i < size; ++i) {
+			value = list[i];
+			int j;
+			for (j = i - 1; j >= 0; --j) {
+				if (list[j] > value)
+					list[j + 1] = list[j];
+				else //j 아래 요소들이 정렬 되어 있으므로 더 이상 반복문 수행하지 않아도 됨을 의미
+					break;
+			}
+			list[j + 1] = value;
+		}
+	}
 
 }
-
-
 
 int main() {
+	//int list[10] = { 99, 80, 90, 20, 30, 24, 45, 77, 10, 13 };
 
-	Queue q1;
-	Queue q2;
+	int list[10] = { 20, 30, 50, 90, 44, 24, 45, 77, 10, 13 };
 
-	InitQueue(&q1, 10);
-	Push(&q1, 10);
-	Push(&q1, 20);
-	Push(&q1, 30);
+	int list[10] = { 20, 30, 44, 50, 90, 24, 45, 77, 10, 13 };
 
+	int size = 10;
+	int min = 0;
+	PrintList(list, size);
+	SelectionSort(list, size);
 
-	printf("%d\n", Pop(&q1));
-	printf("%d\n", Pop(&q1));
-	printf("%d\n", Pop(&q1));
-	UninitQueue(&q1);
-
-	InitQueue(&q2, 10);
-	Push(&q2, 100);
-	Push(&q2, 200);
-
-	printf("%d\n", Pop(&q2));
-	printf("%d\n", Pop(&q2));
-	UninitQueue(&q2);
-
+	PrintList(list, size);
 
 	return 0;
 }
+
+
+//#include <stdio.h>
+//void PrintList(int list[], int size) {
+//	for (int i = 0; i < size; ++i) {
+//		printf("%5d", list[i]);
+//	}
+//	printf("\n");
+//
+//}
+//void Swap(int* pa, int* pb) {
+//	int temp = *pa;
+//	*pa = *pb;
+//	*pb = temp;
+//
+//}
+//int Min(int list[], int sIndex, int lIndex) {
+//	int min = sIndex;
+//	for (int i = sIndex + 1; i <= lIndex; ++i) {
+//		if (list[min] > list[i])
+//			min = i;
+//	}
+//	return min;
+//}
+//
+//void SelectionSort(int list[], int size) {
+//
+//	for (int i = 0; i < size - 1; ++i) {
+//		int min = Min(list, i, size - 1);
+//		Swap(&list[i], &list[min]);
+//
+//	}
+//}
+//
+//int main() {
+//	int list[10] = { 99, 80, 90, 20, 30, 24, 45, 77, 10, 13 };
+//	int size = 10;
+//	int min = 0;
+//	PrintList(list, size);
+//	{
+//		
+//		SelectionSort(list, size);
+//	}
+//
+//	PrintList(list, size);
+//
+//	return 0;
+//}
+
+//#include<stdio.h>
+//typedef struct _q {
+//
+//	int* queue;
+//	int front, rear;
+//	int capacity;
+//} Queue;
+//
+//
+//void Push(Queue* q, int data) {
+//	if ((q->rear + 1) % q->capacity == q->front)
+//		return;
+//	/*
+//		++rear;
+//		if(rear == 5)
+//			rear = 0;
+//
+//	*/
+//
+//	q->rear = (q->rear + 1) % q->capacity;
+//	q->queue[q->rear] = data;
+//
+//}
+//
+//int Pop(Queue* q) {
+//	if (q->front == q->rear)
+//		return 0xfffffff;
+//
+//	q->front = (q->front + 1) % q->capacity;
+//
+//	return q->queue[q->front];
+//}
+//
+//void InitQueue(Queue* q, int cap) {
+//	q->queue = (int*)malloc(sizeof(int) * cap);
+//	q->capacity = cap;
+//	q->front = q->rear = 0;
+//
+//}
+//void UninitQueue(Queue* q) {
+//	free(q->queue);
+//	q->front = q->rear = 0;
+//
+//}
+//
+//
+//
+//int main() {
+//
+//	Queue q1;
+//	Queue q2;
+//
+//	InitQueue(&q1, 10);
+//	Push(&q1, 10);
+//	Push(&q1, 20);
+//	Push(&q1, 30);
+//
+//
+//	printf("%d\n", Pop(&q1));
+//	printf("%d\n", Pop(&q1));
+//	printf("%d\n", Pop(&q1));
+//	UninitQueue(&q1);
+//
+//	InitQueue(&q2, 10);
+//	Push(&q2, 100);
+//	Push(&q2, 200);
+//
+//	printf("%d\n", Pop(&q2));
+//	printf("%d\n", Pop(&q2));
+//	UninitQueue(&q2);
+//
+//
+//	return 0;
+//}
 
 
 //#include<stdio.h>

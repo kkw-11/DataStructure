@@ -6,45 +6,88 @@ void PrintList(int list[], int size) {
 	printf("\n");
 
 }
-void Swap(int* pa, int* pb) {
-	int temp = *pa;
-	*pa = *pb;
-	*pb = temp;
-
-}
-void SelectionSort(int list[], int size) {
-	{
-		int value, j;
-		for (int i = 1; i < size; ++i) {
-			value = list[i];
-			for (j = i - 1; j >= 0; --j) {
-				if (list[j] > value)
-					list[j + 1] = list[j];
-				else //j 아래 요소들이 정렬 되어 있으므로 더 이상 반복문 수행하지 않아도 됨을 의미
-					break;
-			}
-			list[j + 1] = value;
-		}
-	}
-
-}
 
 int main() {
-	//int list[10] = { 99, 80, 90, 20, 30, 24, 45, 77, 10, 13 };
+	int list[10] = { 30,21,10,40,30,60,48,39,29,54 };
 
-	int list[10] = { 20, 30, 50, 90, 44, 24, 45, 77, 10, 13 };
-
-	int list[10] = { 20, 30, 44, 50, 90, 24, 45, 77, 10, 13 };
-
-	int size = 10;
-	int min = 0;
+	int size = sizeof(list) / sizeof(list[0]);
+	printf("루프전:  ");
 	PrintList(list, size);
-	SelectionSort(list, size);
+	int i = 1;
+	int value; 
+	int j;
+	for (i = 1; i < size; ++i) {
+		value = list[i];
+		for (j = i - 1; j >= 0; --j) {
+			if (list[j] > value)
+				list[j + 1] = list[j];
+//			else
+//				break;
+			printf("삽입전:  ");
+			PrintList(list, size);
 
-	PrintList(list, size);
+		}
+
+		list[j + 1] = value;
+		printf("삽입후:  ");
+		PrintList(list, size);
+	}
+
+	printf("final: ");
+	PrintList(list, sizeof(list) / sizeof(list[0]));
+
+
 
 	return 0;
 }
+
+//#include <stdio.h>
+//void PrintList(int list[], int size) {
+//	for (int i = 0; i < size; ++i) {
+//		printf("%5d", list[i]);
+//	}
+//	printf("\n");
+//
+//}
+//void Swap(int* pa, int* pb) {
+//	int temp = *pa;
+//	*pa = *pb;
+//	*pb = temp;
+//
+//}
+//void SelectionSort(int list[], int size) {
+//	{
+//		int value, j;
+//		for (int i = 1; i < size; ++i) {
+//			value = list[i];
+//			for (j = i - 1; j >= 0; --j) {
+//				if (list[j] > value)
+//					list[j + 1] = list[j];
+//				else //j 아래 요소들이 정렬 되어 있으므로 더 이상 반복문 수행하지 않아도 됨을 의미
+//					break;
+//			}
+//			list[j + 1] = value;
+//		}
+//	}
+//
+//}
+//
+//int main() {
+//	//int list[10] = { 99, 80, 90, 20, 30, 24, 45, 77, 10, 13 };
+//
+//	int list[10] = { 20, 30, 50, 90, 44, 24, 45, 77, 10, 13 };
+//
+//	int list[10] = { 20, 30, 44, 50, 90, 24, 45, 77, 10, 13 };
+//
+//	int size = 10;
+//	int min = 0;
+//	PrintList(list, size);
+//	SelectionSort(list, size);
+//
+//	PrintList(list, size);
+//
+//	return 0;
+//}
 
 
 //#include <stdio.h>

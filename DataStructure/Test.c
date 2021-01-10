@@ -21,8 +21,8 @@ int main() {
 		for (j = i - 1; j >= 0; --j) {
 			if (list[j] > value)
 				list[j + 1] = list[j];
-//			else
-//				break;
+			else
+				break;
 			printf("»ğÀÔÀü:  ");
 			PrintList(list, size);
 
@@ -35,7 +35,6 @@ int main() {
 
 	printf("final: ");
 	PrintList(list, sizeof(list) / sizeof(list[0]));
-
 
 
 	return 0;

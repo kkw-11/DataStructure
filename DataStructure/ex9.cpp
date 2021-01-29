@@ -1,18 +1,25 @@
 #include <stdio.h>
 
+void Swap(int* pa, int* pb) {
+	int temp = *pa;
+	*pa = *pb;
+	*pb = temp;
+}
+
+void PrintList(int list[], int size) {
+	for (int i = 0; i < size; ++i) {
+		printf("%5d", list[i]);
+	}
+	printf("\n");
+
+}
+
 int main() {
 
-	/*printf("%d\n", 2*1);
-	printf("%d\n", 2 * 2);
-	printf("%d\n", 2 * 3);
-	printf("%d\n", 2 * 4);
-	printf("%d\n", 2 * 5);*/
+	int list[10] = { 50,20,70,80,90,40,30,45,75 };
+	int size = 10;
 
-
-	for(int i=1; i<10; ++i){
-		printf("2 * %d = %d \n",i,2*i);
-	}
-
+	PrintList(list, size);
 
 
 	return 0;

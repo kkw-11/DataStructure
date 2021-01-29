@@ -13,11 +13,43 @@ void PrintList(int list[], int size) {
 	printf("\n");
 
 }
+void _Sort(int list[], int left, int right) {
+	if (left <= right) {
+		int pivot = left;
+		int i = left + 1;
+		int j = right;
+		do {
+			while (list[pivot] > list[i]) {
+				++i;
+			}
+			while (list[pivot] < list[j]) {
+				--j;
+			}
 
+			if (i <= j) {
+				Swap(&list[i], &list[j]);
+				++i;
+				--j;
+			}
+
+		} while (i <= j);
+		Swap(&list[pivot], &list[j]);
+		_Sort(list, left, j - 1);
+		_Sort(list, j + 1, right);
+	}
+}
+void Sort(int list[], int size) {
+
+	_Sort(list, 0, size - 1); //재귀함수동작을 위한 위임함수
+
+}
 int main() {
 
-	int list[10] = { 50,20,70,80,90,40,30,45,75 };
+	int list[10] = { 50,20,70,80,60,90,40,30,45,75 };
 	int size = 10;
+	PrintList(list, size);
+
+	Sort(list, size);
 
 	PrintList(list, size);
 

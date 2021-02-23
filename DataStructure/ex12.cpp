@@ -98,7 +98,6 @@ int main()
 	UninitList(&head, &tail);
 	return 0;
 }
-
 //#include <stdio.h>
 //#include <stdlib.h>
 //typedef struct _node

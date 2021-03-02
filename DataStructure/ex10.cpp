@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-tydef unsigned long BitSet;
+typedef unsigned long BitSet;
 
 #define BitSetNu (BitSet)0
 #define BitSetBits 32

@@ -12,18 +12,51 @@ int IsMember(BitSet s, int data);
 void Add(BitSet* s, int data);
 //집합 원소 삭제
 void Remove(BitSet* s, int data);
-
+//원소 개수 반환
 int Size(BitSet s);
-
+//집합원소 출력
 void Print(BitSet s);
 
-void PrintLn(BitSet s);
+int IsMember(BitSet s, int data) {
+	return s & SetOf(data);
+}
+void Print(BitSet s) {
+	printf("{ ");
+	for (int i = 0; i < BitSetBits; ++i) {
+		if (IsMember(s, i))
+			printf("%d ", i);
+	}
+	printf("} ");
+}
+
+void Add(BitSet* s, int data) {
+	*s |= SetOf(data);
+}
+
+void Remove(BitSet* s, int data) {
+	*s &= ~SetOf(data);
+}
+int Size(BitSet s) {
+	int count = 0;
+	for (; s != BitSetNull;++count)
+		s &= s - 1;
+	return count;
+}
 
 int main() {
-	BitSet A;
+	BitSet A = BitSetNull;
 
-	printf("%d\n", sizeof(A));
+	Add(&A, 1);
+	Add(&A, 3);
+	Add(&A, 5);
+	printf("size : %d\n", Size(A));
+
+	Remove(&A, 3);
+	printf("size : %d\n", Size(A));
+
+	Print(A);
 }
+
 //#include <stdio.h>
 //#include <stdlib.h>
 //

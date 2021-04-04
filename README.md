@@ -1,4 +1,5 @@
 # DataStructure
 
-## Introduction
- - DataStructure 강의 과제 정리 
+## Description
+ - 자료구조 학습
+  

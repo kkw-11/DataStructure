@@ -1,4 +1,4 @@
 # DataStructure
 
 ## Introduction
- - DataStructure 강의  정리 
+ - DataStructure 강의 과제 정리 

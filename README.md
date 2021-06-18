@@ -1,7 +1,7 @@
 # DataStructure
 
 ## Introduction
-* 필수 자료구조 구현
+* 필수 자료구조 구현(C언어)
 * 참고자료 : Do it! 자료구조와 함께 배우는 알고리즘 입문 C 언어 편, 윤성우의 열혈 자료구조
 
 ## Description

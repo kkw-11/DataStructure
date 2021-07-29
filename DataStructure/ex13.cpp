@@ -61,7 +61,7 @@ int main() {
 	root->rChild->rChild = AllocNode(90);
 
 	Inorder(root);	printf("\n");
-	Preorder(root); print("\n");
+	Preorder(root); printf("\n");
 
 
 	return 0;

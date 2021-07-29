@@ -6,6 +6,7 @@ typedef struct _node
 	struct _node* prev;
 	struct _node* next;
 } Node;
+
 Node* AllocNode(int data)
 {
 	Node* n = (Node*)malloc(sizeof(Node));
@@ -15,10 +16,12 @@ Node* AllocNode(int data)
 
 	return n;
 }
+
 void FreeNode(Node* p)
 {
 	free(p);
 }
+
 void AddTailList(Node* head, Node* tail, int data)
 {
 	Node* n = AllocNode(data);
@@ -29,6 +32,7 @@ void AddTailList(Node* head, Node* tail, int data)
 	n->next = tail;
 	tail->prev = n;
 }
+
 void AddHeadList(Node* head, Node* tail, int data)
 {
 	Node* n = AllocNode(data);
@@ -39,6 +43,7 @@ void AddHeadList(Node* head, Node* tail, int data)
 	n->next = nhead;
 	nhead->prev = n;
 }
+
 void RemoveList(Node* head, Node* tail, Node* p)
 {
 	Node* pp = p->prev;

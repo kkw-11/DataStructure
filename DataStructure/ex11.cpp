@@ -1,32 +1,33 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct _node {
+struct _node {
 	int data;
 	struct _node* link;
-}Node;
+};
+typedef struct _node Node;
 
 void FreeNode(Node* head) {
-	for (Node* p = head; p != NULL; ) {
+	for (Node* p = head; p != NULL;) {
 		Node* np = p->link;
 		free(p);
 		p = np;
 	}
 }
+
 Node* AllocNode(int data) {
-	Node* n = (Node*)malloc(sizeof(Node));
+	Node* n= (Node*)malloc(sizeof(Node));
 	n->data = data;
 	n->link = NULL;
-
+	
 	return n;
 }
-
 int main() {
+
 
 	Node* head = NULL;
 	Node* tail = NULL;
 	Node* n;
-
 	n = AllocNode(10);
 	tail = head = n;
 
@@ -38,44 +39,135 @@ int main() {
 	tail->link = n;
 	tail = n;
 
-	for (Node* p = head; p != NULL; p = p->link)
+	n = AllocNode(40);
+	tail->link = n;
+	tail = n;
+
+	n = AllocNode(50);
+	tail->link = n;
+	tail = n;
+
+
+	Node* p = head;
+	p = p->link;
+	Node* bp = p;  
+	p = p->link;
+	// p노드 삭제
+	Node* np = p->link;
+	bp->link = np;
+	free(p);
+
+
+
+
+	for (Node* p = head; p != NULL; p = p->link) {
 		printf("%d\n", p->data);
+	}
 
 
 	FreeNode(head);
 
 	return 0;
+}
 
 
 //#include <stdio.h>
 //#include <stdlib.h>
 //
-//typedef struct _node {
+//
+//
+//struct _node {
 //	int data;
 //	struct _node* link;
-//}Node;
+//};
+//typedef struct _node Node;
+//
+//Node* head = NULL;
+//Node* tail = NULL;
 //
 //void FreeNode(Node* head) {
-//	for (Node* p = head; p != NULL; ) {
+//	for (Node* p = head; p != NULL;) {
 //		Node* np = p->link;
 //		free(p);
 //		p = np;
 //	}
 //}
+//
 //Node* AllocNode(int data) {
 //	Node* n = (Node*)malloc(sizeof(Node));
 //	n->data = data;
 //	n->link = NULL;
 //
+//	if (head == NULL && tail == NULL){
+//		tail = head = n;
+//	}
+//	else {
+//		tail->link = n;
+//		tail = n;
+//	}
+//
 //	return n;
 //}
-//
 //int main() {
+//
+//
+//	
+//	Node* n = AllocNode(10);
+//
+//	n = AllocNode(20);
+//
+//
+//	n = AllocNode(30);
+//
+//
+//	n = AllocNode(40);
+//
+//
+//	n = AllocNode(50);
+//
+//
+//	for (Node* p = head; p != NULL; p = p->link) {
+//		printf("%d\n", p->data);
+//	}
+//
+//
+//	FreeNode(head);
+//
+//	return 0;
+//}
+
+
+
+//#include <stdio.h>
+//#include <stdlib.h>
+//
+//struct _node {
+//	int data;
+//	struct _node* link;
+//};
+//typedef struct _node Node;
+//
+//void FreeNode(Node* head) {
+//	for (Node* p = head; p != NULL;) {
+//		Node* np = p->link;
+//		free(p);
+//		p = np;
+//	}
+//}
+//
+//Node* AllocNode(int data) {
+//	Node* n= (Node*)malloc(sizeof(Node));
+//	n->data = data;
+//	n->link = NULL;
+//	
+//	return n;
+//}
+//int main() {
+//
 //
 //	Node* head = NULL;
 //	Node* tail = NULL;
 //	Node* n;
-//
 //	n = AllocNode(10);
 //	tail = head = n;
 //
@@ -87,26 +179,36 @@ int main() {
 //	tail->link = n;
 //	tail = n;
 //
+//	n = AllocNode(40);
+//	tail->link = n;
+//	tail = n;
 //
-//	for (Node* p = head; p != NULL; p = p->link)
+//	n = AllocNode(50);
+//	tail->link = n;
+//	tail = n;
+//
+//	for (Node* p = head; p != NULL; p = p->link) {
 //		printf("%d\n", p->data);
+//	}
 //
 //
 //	FreeNode(head);
 //
 //	return 0;
-}
+//}
+
 
 //#include <stdio.h>
 //#include <stdlib.h>
 //
-//typedef struct _node {
+//struct _node {
 //	int data;
 //	struct _node* link;
-//}Node;
+//};
+//typedef struct _node Node;
 //
 //void FreeNode(Node* head) {
-//	for (Node* p = head; p != NULL; ) {
+//	for (Node* p = head; p != NULL;) {
 //		Node* np = p->link;
 //		free(p);
 //		p = np;
@@ -114,6 +216,7 @@ int main() {
 //}
 //
 //int main() {
+//
 //
 //	Node* head = NULL;
 //	Node* tail = NULL;
@@ -126,35 +229,36 @@ int main() {
 //	n = (Node*)malloc(sizeof(Node));
 //	n->data = 20;
 //	n->link = NULL;
-//	tail->link = n;
-//	tail = n; 
+//	tail->link = n ;
+//	tail = n;
 //
 //	n = (Node*)malloc(sizeof(Node));
 //	n->data = 30;
 //	n->link = NULL;
 //	tail->link = n;
 //	tail = n;
-//
-//
-//	for (Node* p = head; p != NULL; p = p->link)
+//	
+//	for (Node* p = head; p != NULL; p = p->link) {
 //		printf("%d\n", p->data);
+//	}
 //
 //
 //	FreeNode(head);
 //
 //	return 0;
 //}
-
+ 
 //#include <stdio.h>
 //#include <stdlib.h>
 //
-//typedef struct _node {
+//struct _node {
 //	int data;
 //	struct _node* link;
-//}Node;
+//};
+//typedef struct _node Node;
 //
 //void FreeNode(Node* head) {
-//	for (Node* p = head; p != NULL; ) {
+//	for (Node* p = head; p != NULL;) {
 //		Node* np = p->link;
 //		free(p);
 //		p = np;
@@ -163,7 +267,8 @@ int main() {
 //
 //int main() {
 //
-//	Node* head  = NULL;
+//
+//	Node* head = NULL;
 //	Node* n;
 //	n = (Node*)malloc(sizeof(Node));
 //	n->data = 10;
@@ -180,8 +285,11 @@ int main() {
 //	n->link = NULL;
 //	head->link->link = n;
 //
-//	for (Node* p = head; p != NULL; p = p->link)
+//
+//	for (Node* p = head; p != NULL; p = p->link) {
 //		printf("%d\n", p->data);
+//	}
+//
 //
 //	FreeNode(head);
 //
@@ -191,244 +299,39 @@ int main() {
 //#include <stdio.h>
 //#include <stdlib.h>
 //
-//typedef struct _node {
+//struct _node {
 //	int data;
 //	struct _node* link;
-//}Node;
+//};
+//typedef struct _node Node;
 //
-//void FreeNode(Node* head) {
-//	for (Node* p = head; p != NULL; ) {
+//int main() {
+//
+//
+//	Node* head = (Node*)malloc(sizeof(Node));
+//	head->data = 10;
+//	head->link = NULL;
+//
+//	head->link = (Node*)malloc(sizeof(Node));
+//	head->link->data = 20;
+//	head->link->link = NULL;
+//
+//	head->link->link = (Node*)malloc(sizeof(Node));
+//	head->link->link->data = 30;
+//	head->link->link->link = NULL;
+//
+//
+//	for (Node* p = head; p != NULL; p = p->link) {
+//		printf("%d\n", p->data);
+//	}
+//
+//	
+//	for (Node* p = head; p != NULL;) {
 //		Node* np = p->link;
 //		free(p);
 //		p = np;
 //	}
-//}
-//
-//int main() {
-//
-//	Node* head = (Node*)malloc(sizeof(Node));
-//	head->data = 10;
-//	head->link = NULL;
-//
-//	head->link = (Node*)malloc(sizeof(Node));
-//	head->link->data = 20;
-//	head->link->link = NULL;
-//
-//	head->link->link = (Node*)malloc(sizeof(Node));
-//	head->link->link->data = 30;
-//	head->link->link->link = NULL;
-//
-//	for (Node* p = head; p != NULL; p = p->link)
-//		printf("%d\n", p->data);
-//
-//	FreeNode(head);
-//
-//	return 0;
-//}
-
-//#include <stdio.h>
-//#include <stdlib.h>
-//
-//typedef struct _node {
-//	int data;
-//	struct _node* link;
-//}Node;
-//int main() {
-//
-//	Node* head = (Node*)malloc(sizeof(Node));
-//	head->data = 10;
-//	head->link = NULL;
-//
-//
-//	head->link = (Node*)malloc(sizeof(Node));
-//	head->link->data = 20;
-//	head->link->link = NULL;
-//
-//	head->link->link = (Node*)malloc(sizeof(Node));
-//	head->link->link->data = 30;
-//	head->link->link->link = NULL;
-//
-//
-//	for (Node* p = head; p != NULL; p = p->link)
-//		printf("%d\n", p->data);
-//
-//	for (Node* p = head; p != NULL; ) {
-//		Node* np = p->link;
-//		free(p);
-//		p = np;
-//	} 
-//
-//	return 0;
-//}
-
-
-//#include <stdio.h>
-//#include <stdlib.h>
-//
-//typedef struct _node {
-//	int data;
-//	struct _node* link;
-//}Node;
-//int main() {
-//
-//	Node* head = (Node*)malloc(sizeof(Node));
-//
-//	head->data = 10;
-//	head->link = NULL;
-//
-//
-//	head->link = (Node*)malloc(sizeof(Node));
-//	head->link->data = 20;
-//	head->link->link = NULL;
-//
-//	head->link->link = (Node*)malloc(sizeof(Node));
-//	head->link->link->data = 30;
-//	head->link->link->link = NULL;
-//
-//
-//	for (Node* p = head; p != NULL; p = p->link)
-//		printf("%d\n", p->data);
-//
-//
-//	return 0;
-//}
-
-//#include <stdio.h>
-//#include <stdlib.h>
-//
-//typedef struct _node {
-//	int data;
-//	struct _node* link;
-//}Node;
-//int main() {
-//
-//	//struct _node n1 = { 10,NULL };
-//	Node n1 = { 10,NULL };
-//	Node n2 = { 20,NULL };
-//	Node n3 = { 30,NULL };
-//	Node* head = NULL;
-//
-//	head = &n1;
-//
-//	n1.link = &n2;
-//	n2.link = &n3;
-//
-//	//printf("%d\n", p->data);
-//	//p = p->link;//연결리스트 전진코드
-//	//printf("%d\n", p->data);
-//	//p = p->link;
-//	//printf("%d\n", p->data);
-//
-//	for (Node* p = head; p != NULL; p = p->link)
-//		printf("%d\n", p->data);
-//
-//
-//	return 0;
-//}
-
-//#include <stdio.h>
-//#include <stdlib.h>
-//
-//typedef struct _node {
-//	int data;
-//	struct _node* link;
-//}Node;
-//int main() {
-//
-//	//struct _node n1 = { 10,NULL };
-//	Node n1 = { 10,NULL };
-//	Node n2 = { 20,NULL };
-//	Node n3 = { 30,NULL };
-//	Node* head = NULL;
-//	Node* p = NULL;
-//
-//	head = &n1;
-//	p = head;
-//
-//	n1.link = &n2;
-//	n2.link = &n3;
-//
-//	printf("%d\n", head->data);
-//	printf("%d\n", p->data);
-//	p = p->link;//연결리스트 전진코드
-//	printf("%d\n", head->link->data);
-//	printf("%d\n", p->data);
-//	p = p->link;
-//	printf("%d\n", head->link->link->data);
-//	printf("%d\n", p->data);
-//	   
-//	return 0;
-//}
-
-
-//#include <stdio.h>
-//#include <stdlib.h>
-//
-//typedef struct _node {
-//	int data;
-//	struct _node* link;
-//}Node;
-//int main() {
-//
-//	//struct _node n1 = { 10,NULL };
-//	Node n1 = { 10,NULL };
-//	Node n2 = { 20,NULL };
-//	Node n3 = { 30,NULL };
-//	Node* head = NULL;
-//	
-//	head = &n1;
-//	n1.link = &n2;
-//	n2.link = &n3;
-//	printf("%d\n", n1.data);
-//	printf("%d\n", head->data);
-//
-//	printf("%d\n", n2.data);
-//	printf("%d\n", head->link->data);
-//
-//	printf("%d\n", n3.data); 
-//	printf("%d\n", head->link->link->data);
-//
-//	return 0;
-//}
-
-//#include <stdio.h>
-//#include <stdlib.h>
-//
-//typedef struct _node {
-//	int data;
-//	struct _node* link;
-//}Node;
-//int main() {
-//
-//	//struct _node n1 = { 10,NULL };
-//	Node n1 = { 10,NULL };
-//	Node n2 = { 20,NULL };
-//	Node n3 = { 30,NULL };
-//
-//	n1.link = &n2;
-//	n2.link = &n3;
-//
-//
-//	printf("%d\n", n1.data);
-//	printf("%d\n", n2.data);
-//	printf("%d\n", n3.data);
-//	return 0;
-//}
-
-
-//#include <stdio.h>
-//#include <stdlib.h>
-//
-//typedef struct _node {
-//	int data;
-//	struct _node* link;
-//}Node;
-//int main() {
-//
-//	//struct _node n1 = { 10,NULL };
-//	Node n1 = { 10,NULL };
-//
-//	printf("%d\n", n1.data);
+//		
 //	return 0;
 //}
 
@@ -441,12 +344,145 @@ int main() {
 //	struct _node* link;
 //};
 //typedef struct _node Node;
+//
 //int main() {
 //
-//	//struct _node n1 = { 10,NULL };
-//	Node n1 = { 10,NULL };
+//	
+//
+//	Node* head = (Node*)malloc(sizeof(Node));
+//	head->data = 10;
+//	head->link = NULL;
+//
+//	head->link = (Node*)malloc(sizeof(Node));
+//	head->link->data = 20;
+//	head->link->link = NULL;
+//
+//	head->link->link = (Node*)malloc(sizeof(Node));
+//	head->link->link->data = 30;
+//	head->link->link->link = NULL;
+//
+//
+//	for (Node* p = head; p != NULL; p = p->link) {
+//		printf("%d\n", p->data);
+//	}
+//
+//	return 0;
+//}
+
+//#include <stdio.h>
+//#include <stdlib.h>
+//
+//struct _node {
+//	int data;
+//	struct _node* link;
+//};
+//typedef struct _node Node;
+//
+//int main() {
+//
+//	Node n1 = { 10, NULL };
+//	Node n2 = { 20, NULL };
+//	Node n3 = { 30, NULL };
+//
+//	Node* head = NULL;
+//	Node* p = NULL;
+//
+//	head = &n1;
+//	n1.link = &n2;
+//	n2.link = &n3;
+//
+//	for (Node* p = head; p != NULL; p = p->link) {
+//		printf("%d\n", p->data);
+//	}
+//
+//
+//	return 0;
+//}
+
+//#include <stdio.h>
+//#include <stdlib.h>
+//
+//struct _node {
+//	int data;
+//	struct _node* link;
+//};
+//typedef struct _node Node;
+//
+//int main() {
+//
+//	Node n1 = { 10, NULL };
+//	Node n2 = { 20, NULL };
+//	Node n3 = { 30, NULL };
+//
+//	Node* head = NULL;
+//	Node* p = NULL;
+//
+//	head = &n1;
+//	p = head;
+//	n1.link = &n2;
+//	n2.link = &n3;
 //
 //	printf("%d\n", n1.data);
+//	printf("%d\n", n2.data);
+//	printf("%d\n", n3.data);
+//	printf("\n");
+//
+//	printf("%d\n", head->data);
+//	printf("%d\n", head->link->data);
+//	printf("%d\n", head->link->link->data);
+//	printf("\n");
+//
+//	printf("%d\n", p->data);
+//	p = p->link; // 연결리스트 전진 코드
+//	printf("%d\n", p->data);
+//	p = p->link;
+//	printf("%d\n", p->data);
+//
+//	printf("\n");
+//
+//	for (Node* p = head; p != NULL; p = (*p).link) {
+//		printf("%d\n", p->data);
+//	}
+//
+//	for (Node* p = head; p != NULL; p = p->link) {
+//		printf("%d\n", p->data);
+//	}
+//
+//
+//	return 0;
+//}
+
+
+
+//#include <stdio.h>
+//#include <stdlib.h>
+//
+//struct _node {
+//	int data;
+//	struct _node* link;
+//};
+//typedef struct _node Node;
+//
+//int main() {
+//
+//	Node n1 = { 10, NULL };
+//	Node n2 = { 20, NULL };
+//	Node n3 = { 30, NULL };
+//	
+//	Node* head = NULL;
+//	head = &n1;
+//	n1.link = &n2;
+//	n2.link = &n3;
+//
+//	printf("%d\n", n1.data);
+//	printf("%d\n", n2.data);
+//	printf("%d\n", n3.data);
+//
+//	printf("%d\n", head->data);
+//	printf("%d\n", head->link->data);
+//	printf("%d\n", head->link->link->data);
+//
+//
 //	return 0;
 //}
 
@@ -458,11 +494,73 @@ int main() {
 //	int data;
 //	struct _node* link;
 //};
+//typedef struct _node Node;
 //
 //int main() {
 //
-//	struct _node n1 = { 10,NULL };
+//	Node n1 = { 10, NULL };
+//	Node n2 = { 20, NULL };
+//	Node n3 = { 30, NULL };
+//
+//	n1.link = &n2;
+//	n2.link = &n3;
 //
 //	printf("%d\n", n1.data);
+//	printf("%d\n", n2.data);
+//	printf("%d\n", n3.data);
+//
+//	return 0;
+//}
+
+
+//#include <stdio.h>
+//#include <stdlib.h>
+//
+//struct _node {
+//	int data;
+//	struct _node* link;
+//}typedef Node;
+//int main() {
+//
+//	Node n1 = { 10, NULL };
+//
+//	printf("%d\n", n1.data);
+//
+//	return 0;
+//}
+//
+
+//#include <stdio.h>
+//#include <stdlib.h>
+//
+//struct _node {
+//	int data;
+//	struct _node* link;
+//};
+//typedef struct _node Node;
+//int main() {
+//
+//	struct _node n1 = { 10, NULL };
+//
+//	printf("%d\n", n1.data);
+//
+//	return 0;
+//}
+
+//#include <stdio.h>
+//#include <stdlib.h>
+//
+//
+//struct _node {
+//	int data;
+//	struct _node* link;
+//};
+//
+//int main() {
+//
+//	struct _node n1 = { 10, NULL };
+//
+//	printf("%d\n", n1.data);
+//
 //	return 0;
 //}

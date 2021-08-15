@@ -27,25 +27,25 @@ int main() {
 
 	Node* head = NULL;
 	Node* tail = NULL;
-	Node* n;
-	n = AllocNode(10);
-	tail = head = n;
+	Node* new_node;
+	new_node = AllocNode(10);
+	tail = head = new_node;
 
-	n = AllocNode(20);
-	tail->link = n;
-	tail = n;
+	new_node = AllocNode(20);
+	tail->link = new_node;
+	tail = new_node;
 
-	n = AllocNode(30);
-	tail->link = n;
-	tail = n;
+	new_node = AllocNode(30);
+	tail->link = new_node;
+	tail = new_node;
 
-	n = AllocNode(40);
-	tail->link = n;
-	tail = n;
+	new_node = AllocNode(40);
+	tail->link = new_node;
+	tail = new_node;
 
-	n = AllocNode(50);
-	tail->link = n;
-	tail = n;
+	new_node = AllocNode(50);
+	tail->link = new_node;
+	tail = new_node;
 
 
 	Node* p = head;

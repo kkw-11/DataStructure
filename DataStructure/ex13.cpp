@@ -99,9 +99,6 @@ Node* SearchNode(Node* root, int data) {
 		return SearchNode(root->rChild, data);
 	else
 		return root;
-
-
-
 }
 
 int main() {
@@ -116,16 +113,15 @@ int main() {
 	root = AddNode(root, 60);
 	root = AddNode(root, 90);
 
-
-	Inorder(root);	printf("\n");
-	Preorder(root); printf("\n");
-	Postorder(root); printf("\n");
-	Levelorder(root); printf("\n");
+	Inorder(root);	printf("\n\n");
+	Preorder(root); printf("\n\n");
+	Postorder(root); printf("\n\n");
+	Levelorder(root); printf("\n\n");
 	
-	Node * p = SearchNode(root, 4);
+	/*Node * p = SearchNode(root, 4);
 	if (p != NULL)
 		printf("search: %d\n", p->data);
-	
+	*/
 	FreeNode(root);
 	return 0;
 

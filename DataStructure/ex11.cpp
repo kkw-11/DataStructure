@@ -24,7 +24,6 @@ Node* AllocNode(int data) {
 }
 int main() {
 
-
 	Node* head = NULL;
 	Node* tail = NULL;
 	Node* new_node;
@@ -47,7 +46,6 @@ int main() {
 	tail->link = new_node;
 	tail = new_node;
 
-
 	Node* p = head;
 	p = p->link;
 	Node* bp = p;  
@@ -57,19 +55,14 @@ int main() {
 	bp->link = np;
 	free(p);
 
-
-
-
 	for (Node* p = head; p != NULL; p = p->link) {
 		printf("%d\n", p->data);
 	}
-
 
 	FreeNode(head);
 
 	return 0;
 }
-
 
 //#include <stdio.h>
 //#include <stdlib.h>
